@@ -1,15 +1,31 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-todo-input-add-itens',
   templateUrl: './todo-input-add-itens.component.html',
   styleUrls: ['./todo-input-add-itens.component.scss']
 })
-export class TodoInputAddItensComponent {
+export class TodoInputAddItensComponent implements OnInit{
 
-  submitItemTaskList() {
 
-  }
 
+@Output() public emitItemTaskList = new EventEmitter()
+
+public ItemTaskList: string = ""
+
+constructor() { }
+
+ngOnInit(): void {
+}
+
+  public submitItemTaskList() {
+    //console.log(this.ItemTaskList) o emit ta transportando emitindo la pra compotodolist
+    //o .trim remove todos os espacoes da inicio e do final nao permitindo colocar apenas espaco
+    this.ItemTaskList = this.ItemTaskList.trim()
+    if(this.ItemTaskList) {
+      this.emitItemTaskList.emit(this.ItemTaskList)
+      this.ItemTaskList = ""
+      }
+    }
 
 }
