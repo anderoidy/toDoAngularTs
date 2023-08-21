@@ -11,8 +11,6 @@ import { TodoListComponent } from './components/todo-list/todo-list.component';
 import { HomeComponent } from './pages/home/home.component';
 import { HeaderComponent } from './components/header/header.component';
 
-
-
 @NgModule({
   declarations: [
     //pages
@@ -26,7 +24,6 @@ import { HeaderComponent } from './components/header/header.component';
   imports: [
     CommonModule,
     FormsModule
-
   ]
 })
 export class HomeModule { }
